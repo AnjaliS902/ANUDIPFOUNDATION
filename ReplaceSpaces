@@ -1,0 +1,24 @@
+//write a java program to replace all spaces in a sentence with #.
+//all continuous spaces should be replaced with only one #.
+//Example: There are 3 spaces.should become:There#are#3#spaces. in java code
+
+package demo;
+
+public class ReplaceSpaces {
+	
+	    public static void main(String[] args) {
+	        String sentence = "There are  3   spaces.";
+
+	        // Using regular expression to replace all continuous spaces with a single #
+	        String modifiedSentence = sentence.replaceAll("\\s+", "#");
+
+	        System.out.println("Original sentence: " + sentence);
+	        System.out.println("Modified sentence: " + modifiedSentence);
+	    }
+	    private static String replaceSpaceFunction(String sentence){
+	        return sentence.replaceAll("\\s+", "#");
+	    }
+	}
+
+
+	
