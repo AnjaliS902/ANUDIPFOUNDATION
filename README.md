@@ -1,52 +1,44 @@
 package MDemo;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class LargestElementFinder {
+public class EvenNumberFilter1 {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Create a Scanner object for user input
+		Scanner sc=new Scanner(System.in);
+		//Read the size of the array
+		System.out.println("Enter the number of elements in the array:");
+		int size=sc.nextInt();
+		sc.nextInt();// Consume
+		
+		int[] numbers=new int[size];
+		System.out.println("Enter the numbers");
+		
+		for(int i=0; i<size; i++) {
+			numbers[i]=sc.nextInt();
+		}
+		sc.close();
+		
+		List<Integer>EvenNumber = new ArrayList<>();
+		int sum =0;
+		
+		
+		for(int number: numbers) {
+			if (number %2==0) {
+				EvenNumber.add(number);
+				sum+=number;
+			}
+		}
+			System.out.println("Even Numbers:");
+			for(int evenNumber : EvenNumber) {
+				System.out.println("evenNumbers:");
+              }
+		
+			System.out.println("Sum of even numbers:" + sum);
 
-        // Prompt the user to enter numbers separated by spaces
-        System.out.print("Enter numbers separated by spaces: ");
-        String input = scanner.nextLine();
+	}
 
-        // Split the input string by spaces to get individual number strings
-        String[] numberStrings = input.split(" ");
-
-        int[] numbers = new int[numberStrings.length];
-
-        try {
-            // Convert the number strings to integers
-            for (int i = 0; i < numberStrings.length; i++) {
-                numbers[i] = Integer.parseInt(numberStrings[i]);
-            }
-
-            // Call the function to find the largest element
-            int largestElement = findLargest(numbers);
-
-            // Print the result
-            System.out.println("The largest element is: " + largestElement);
-
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter valid integers separated by spaces.");
-        }
-    }
-
-    // Function to find the largest element in an array of integers
-    public static int findLargest(int[] numbers) {
-        if (numbers.length == 0) {
-            throw new IllegalArgumentException("Empty array, no largest element");
-        }
-
-        int largest = numbers[0];
-
-        for (int i = 1; i < numbers.length; i++) {
-            if (numbers[i] > largest) {
-                largest = numbers[i];
-            }
-        }
-
-        return largest;
-    }
 }
